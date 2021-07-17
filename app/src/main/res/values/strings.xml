@@ -1,3 +1,15 @@
 <resources>
-    <string name="app_name">WeatherApp</string>
+    <string name="app_name">Weather Forecast</string>
+
+    <string name="hint_enter_search">Enter city name to search</string>
+    <string name="action_get_weather">Get Weather</string>
+
+    <string name="label_date">Date: %1$s</string>
+    <string name="label_average_temperature">Average temperature: %1$.0f\u2103</string>
+    <string name="label_pressure">Pressure: %1$d</string>
+    <string name="label_humidity">Humidity: %1$d%%</string>
+    <string name="label_description">Description: %1$s</string>
+
+    <string name="action_ok">OK</string>
+    <string name="error_root_detected">This app can\'t be used on this device</string>
 </resources>

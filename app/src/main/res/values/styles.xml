@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TransparentDialog" parent="Theme.WeatherApp">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">false</item>
+    </style>
+
+    <style name="WeatherTextView">
+        <item name="android:textColor">@color/grey</item>
+        <item name="android:paddingStart">@dimen/common_space_x1_5</item>
+        <item name="android:paddingEnd">@dimen/common_space_x1_5</item>
+        <item name="android:paddingTop">@dimen/common_space_tiny</item>
+        <item name="android:paddingBottom">@dimen/common_space_tiny</item>
+    </style>
+
+    <style name="WeatherDivider">
+        <item name="android:background">@color/grey</item>
+    </style>
+</resources>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_date"
+        style="@style/WeatherTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Date: Tue, 10 Jul 2021" />
+
+    <TextView
+        android:id="@+id/tv_average_temp"
+        style="@style/WeatherTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Average temperature: 20C" />
+
+    <TextView
+        android:id="@+id/tv_pressure"
+        style="@style/WeatherTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Pressure: 20C" />
+
+    <TextView
+        android:id="@+id/tv_humidity"
+        style="@style/WeatherTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Humidity: 70%" />
+
+    <TextView
+        android:id="@+id/tv_description"
+        style="@style/WeatherTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Description: overcast clouds" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:id="@+id/divider"
+        android:layout_marginTop="@dimen/common_space_tiny"
+        style="@style/WeatherDivider"/>
+</LinearLayout>

@@ -1,0 +1,19 @@
+package com.media2359.weatherapp.manager.preferences
+
+import android.content.SharedPreferences
+import kotlin.properties.ReadWriteProperty
+import kotlin.reflect.KProperty
+
+class LongPreference(
+    private val preferences: SharedPreferences,
+    private val name: String,
+    private val defaultValue: Long
+) : ReadWriteProperty<Any, Long> {
+    override fun getValue(thisRef: Any, property: KProperty<*>): Long {
+        return preferences.getLong(name, defaultValue)
+    }
+
+    override fun setValue(thisRef: Any, property: KProperty<*>, value: Long) {
+        preferences.edit().putLong(name, value).apply()
+    }
+}
