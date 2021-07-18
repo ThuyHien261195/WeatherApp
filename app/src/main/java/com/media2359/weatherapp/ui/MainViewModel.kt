@@ -9,12 +9,12 @@ import com.media2359.weatherapp.content.repository.WeatherRepository
 import com.media2359.weatherapp.manager.AppManager
 import com.media2359.weatherapp.utils.KEEP_CACHE_PERIOD
 import com.media2359.weatherapp.utils.SEARCH_KEYWORD_SIZE
-import com.media2359.weatherapp.utils.tickerFlow
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import kotlin.concurrent.fixedRateTimer
 
 class MainViewModel @Inject constructor(
     private val weatherRepository: WeatherRepository,
@@ -23,15 +23,14 @@ class MainViewModel @Inject constructor(
     dispatcherIO: CoroutineDispatcher
 ) : ViewModel() {
 
-    private val autoClearCacheFlow = tickerFlow(
-        KEEP_CACHE_PERIOD,
-        (appManager.lastClearCacheTimestamp + KEEP_CACHE_PERIOD) - System.currentTimeMillis()
-    ).onEach {
-        clearCache()
-    }
-
     init {
-        autoClearCacheFlow.launchIn(viewModelScope)
+        var initialDelay = (appManager.lastClearCacheTimestamp + KEEP_CACHE_PERIOD) - System.currentTimeMillis()
+        if (initialDelay < 0) {
+            initialDelay = 0
+        }
+        fixedRateTimer(daemon = true, initialDelay = initialDelay, period = KEEP_CACHE_PERIOD) {
+            clearCache()
+        }
     }
 
     private val keywordMSFlow = MutableStateFlow("")

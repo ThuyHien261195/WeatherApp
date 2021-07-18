@@ -7,7 +7,6 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.media2359.weatherapp.content.database.AppDatabase
 import com.media2359.weatherapp.content.database.dao.*
-import com.media2359.weatherapp.content.database.entities.CityEntity
 import com.media2359.weatherapp.content.database.entities.SearchEntity
 import com.media2359.weatherapp.content.model.wrapper.Resource
 import com.media2359.weatherapp.content.network.WeatherService
@@ -165,15 +164,17 @@ class MainViewModelTest {
             val searchEntity = SearchEntity("Saigon", null, "error")
             runBlocking {
                 searchDao.insert(searchEntity)
-
-                val searchFromDb = searchDao.getWeatherSearch("Saigon")
-                assertThat(searchFromDb, equalTo(searchEntity))
-
-                advanceTimeBy(KEEP_CACHE_PERIOD)
-
-                val cacheSearch = searchDao.getWeatherSearch("Saigon")
-                assertThat(cacheSearch, equalTo(null))
             }
+
+            val searchFromDb = searchDao.getWeatherSearch("Saigon")
+            assertThat(searchFromDb, equalTo(searchEntity))
+
+            runBlocking {
+                delay(KEEP_CACHE_PERIOD + 10000L)
+            }
+
+            val cacheSearch = searchDao.getWeatherSearch("Saigon")
+            assertThat(cacheSearch, equalTo(null))
         }
     }
 }
