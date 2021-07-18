@@ -15,6 +15,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emitAll
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
+import retrofit2.HttpException
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -62,9 +63,11 @@ class WeatherRepository @Inject constructor(
                 }
             } catch (e: Exception) {
                 emit(Resource.Error(e, null))
-                searchDao.inserOrUpdate(
-                    SearchEntity(searchRequest.cityName, null, e.message)
-                )
+                if (e is HttpException) {
+                    searchDao.inserOrUpdate(
+                        SearchEntity(searchRequest.cityName, null, e.message)
+                    )
+                }
             }
         }
 
