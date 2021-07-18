@@ -33,7 +33,7 @@ The purpose of this document is to provide developers the overview of the Androi
 
 ## Code folder structure 
 ### Project Structure
-![alt text](https://i.ibb.co/Wy63sSz/Screenshot-2021-07-18-at-2-11-02-AM.png)
+![alt text](https://i.ibb.co/wyfSstr/Screenshot-2021-07-18-at-2-11-02-AM.png)
 - **content** - contains data model includes in **response**, **rntity** and **UI model**, **repository** for getting data from server
 - **di** - for **dagger** implementation
 - **manager** - contains **AppManager** is used to save some information using **SharedPreference** 
