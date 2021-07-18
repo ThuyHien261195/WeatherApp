@@ -18,7 +18,7 @@ The purpose of this document is to provide developers the overview of the Androi
  
 ## App Architecture
 
-![alt text](https://ibb.co/Wpctxy4)
+![alt text](https://i.ibb.co/TqHLv8x/Screenshot-2021-07-17-at-8-00-24-PM.png)
 
 - Activity - **MainActivity** is search screen. 
 - ViewModel - **MainViewModel** contains the Flow, LiveData… for activity
