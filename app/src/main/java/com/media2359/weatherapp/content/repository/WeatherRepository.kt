@@ -57,9 +57,7 @@ class WeatherRepository @Inject constructor(
 
                 // Get from DB
                 cityId?.let { id ->
-                    emitAll(cityDao.getForecastByCityId(id).map {
-                        Resource.Success(it.toCity())
-                    })
+                    emit(Resource.Success(cityDao.getForecastByCityId(id).toCity()))
                 }
             } catch (e: Exception) {
                 emit(Resource.Error(e, null))

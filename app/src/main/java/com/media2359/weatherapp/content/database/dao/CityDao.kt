@@ -15,5 +15,5 @@ interface CityDao : BaseDao<CityEntity> {
         """SELECT * FROM ${CityEntity.TABLE_NAME}
         WHERE ${CityEntity.COL_ID} == :cityId"""
     )
-    fun getForecastByCityId(cityId: Int): Flow<CityWithDetailsEntity>
+    fun getForecastByCityId(cityId: Int): CityWithDetailsEntity
 }
