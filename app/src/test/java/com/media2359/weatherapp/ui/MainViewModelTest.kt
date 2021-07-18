@@ -165,7 +165,6 @@ class MainViewModelTest {
             runBlocking {
                 searchDao.insert(searchEntity)
             }
-
             val searchFromDb = searchDao.getWeatherSearch("Saigon")
             assertThat(searchFromDb, equalTo(searchEntity))
 
