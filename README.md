@@ -11,8 +11,9 @@ The purpose of this document is to provide developers the overview of the Androi
 
 
 ## SOLID Principles
-- *Single responsibility principle: using data class for **Response**, **Entity**,**UI Model** that has only one responsibility.
+- Single responsibility principle: using data class for **Response**, **Entity**,**UI Model** that has only one responsibility.
 - Open / closed principle: **WeatherSearchItem** is base class for items used in Weather search screen that correspond to view holder.
+- Liskov subtitution principle: **BaseResponse** and **SearchResponse** is extended has also use **code** and **message** field.
 - Interface segregation principle: like **RoomTransactionExecutor** interface 
 - Dependency inversion principle: dependency injection by using **Dagger**
  
