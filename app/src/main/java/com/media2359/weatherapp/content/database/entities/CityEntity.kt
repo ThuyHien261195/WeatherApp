@@ -28,7 +28,7 @@ data class CityEntity(
     @ColumnInfo(name = COL_TIMEZONE)
     val timezone: Long?,
     @ColumnInfo(name = COL_FORECAST_ID_LIST)
-    val forecastIdList: List<String>?
+    var forecastIdList: List<String>?
 ) {
     companion object {
         const val TABLE_NAME = "city"

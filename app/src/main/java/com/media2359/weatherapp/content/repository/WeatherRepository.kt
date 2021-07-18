@@ -83,14 +83,19 @@ class WeatherRepository @Inject constructor(
 
             // insert or update city
             val cityEntity = searchResponse.toCityEntity()
+            val forecastEntityList = searchResponse.forecastList?.map {
+                it.toForecastEntity()
+            }
+            cityEntity.forecastIdList = forecastEntityList?.map { it.id }
+
             cityDao.inserOrUpdate(cityEntity)
 
             // delete city forecast junction
             cityForecastJunctionDao.deleteByCityId(cityEntity.id)
 
             // browse forecast list
-            searchResponse.forecastList?.forEach {
-                val forecastEntity = it.toForecastEntity()
+            searchResponse.forecastList?.forEachIndexed { index, response ->
+                val forecastEntity = forecastEntityList?.get(index) ?: return@forEachIndexed
 
                 // insert or update forecast
                 forecastDao.inserOrUpdate(forecastEntity)
@@ -102,15 +107,15 @@ class WeatherRepository @Inject constructor(
                 )
 
                 // insert or update temperature
-                it.temp?.let { tempResponse ->
+                response.temp?.let { tempResponse ->
                     val tempEntity = tempResponse.toTemperatureEntity(forecastEntity.id)
                     temperatureDao.inserOrUpdate(tempEntity)
                 }
 
                 // delete forecast temp junction
                 forecastWeatherJunctionDao.deleteByForecastId(forecastEntity.id)
-                if (!it.weatherList.isNullOrEmpty()) {
-                    val weatherEntity = it.weatherList[0].toWeatherEntity()
+                if (!response.weatherList.isNullOrEmpty()) {
+                    val weatherEntity = response.weatherList[0].toWeatherEntity()
                     weatherDao.inserOrUpdate(weatherEntity)
                     forecastWeatherJunctionDao.inserOrUpdate(
                         ForecastWeatherJunction(
