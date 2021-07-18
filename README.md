@@ -26,7 +26,7 @@ The purpose of this document is to provide developers the overview of the Androi
 
 ## Database structure
 
-![alt text](https://i.ibb.co/vsMN7Lg/214885265-973504260052686-1488961715269742052-n.png)
+![alt text](https://i.ibb.co/hfs8K15/216879453-328171228977845-8232015354134060022-n.png)
 
 - Using **Room** to cache response to support caching mechanism so as to prevent the app from generating a bunch of API requests.
 - Database will be clear every 10 minutes.
