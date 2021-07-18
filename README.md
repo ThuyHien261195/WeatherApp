@@ -41,7 +41,7 @@ The purpose of this document is to provide developers the overview of the Androi
 - **utils** - contains **date** abd **dialog** helper class and **constant field**
 
 ### Unit Test
-![alt text](https://i.ibb.co/M7vfR9s/Screenshot-2021-07-18-at-1-55-37-AM.png)
+![alt text](https://i.ibb.co/Rz3PHsj/Screenshot-2021-07-18-at-1-55-37-AM.png)
 - **test_util** folder contains helper class or extension function to running unit test.
 
 ## Dependencies 
