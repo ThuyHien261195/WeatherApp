@@ -1,6 +1,5 @@
 package com.media2359.weatherapp
 
-import androidx.viewbinding.BuildConfig
 import com.media2359.weatherapp.di.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
@@ -15,6 +14,8 @@ class MainApp : DaggerApplication() {
     override fun onCreate() {
         super.onCreate()
 
-        Timber.plant(Timber.DebugTree());
+        if (BuildConfig.DEBUG) {
+            Timber.plant(Timber.DebugTree())
+        }
     }
 }

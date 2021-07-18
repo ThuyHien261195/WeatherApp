@@ -8,6 +8,7 @@ import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.safetynet.SafetyNet
+import com.media2359.weatherapp.BuildConfig
 import com.media2359.weatherapp.BuildConfig.SAFETYNET_API_KEY
 import com.media2359.weatherapp.R
 import com.media2359.weatherapp.content.model.Forecast
@@ -45,7 +46,9 @@ class MainActivity : DaggerAppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        checkRootDevices()
+        if (!BuildConfig.DEBUG) {
+            checkRootDevices()
+        }
 
         registerObserver()
 
