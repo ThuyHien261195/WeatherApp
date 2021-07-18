@@ -57,8 +57,9 @@ The purpose of this document is to provide developers the overview of the Androi
 
 ## Requirement steps to run application 
 - Using **Android Studio 4.2.0**
-- Choosing **devRelease** Build Variant to check rooted device feature
 - For unit test, check **MainViewModelTest** 
+- Choosing **devRelease** Build Variant to check rooted device feature. 
+- To build **devRelease**: Choose Edit configuration -> Adding signed key for release build, refer **keystore.properties** file 
 
 ## Checklist of requirements has done. 
 1. Using Kotlin 
