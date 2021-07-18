@@ -26,14 +26,14 @@ The purpose of this document is to provide developers the overview of the Androi
 
 ## Database structure
 
-![alt text](https://ibb.co/Wpctxy4)
+![alt text](https://i.ibb.co/vsMN7Lg/214885265-973504260052686-1488961715269742052-n.png)
 
 - Using **Room** to cache response to support caching mechanism so as to prevent the app from generating a bunch of API requests.
 - Database will be clear every 10 minutes.
 
 ## Code folder structure 
 ### Project Structure
-![alt text](https://ibb.co/Wpctxy4)
+![alt text](https://i.ibb.co/Wy63sSz/Screenshot-2021-07-18-at-2-11-02-AM.png)
 - **content** - contains data model includes in **response**, **rntity** and **UI model**, **repository** for getting data from server
 - **di** - for **dagger** implementation
 - **manager** - contains **AppManager** is used to save some information using **SharedPreference** 
@@ -41,7 +41,7 @@ The purpose of this document is to provide developers the overview of the Androi
 - **utils** - contains **date** abd **dialog** helper class and **constant field**
 
 ### Unit Test
-![alt text](https://ibb.co/Wpctxy4)
+![alt text](https://i.ibb.co/M7vfR9s/Screenshot-2021-07-18-at-1-55-37-AM.png)
 - **test_util** folder contains helper class or extension function to running unit test.
 
 ## Dependencies 
