@@ -85,8 +85,8 @@ class WeatherRepository @Inject constructor(
             val cityEntity = searchResponse.toCityEntity()
             val forecastEntityList = searchResponse.forecastList?.map {
                 it.toForecastEntity()
-            }
-            cityEntity.forecastIdList = forecastEntityList?.map { it.id }
+            } ?: emptyList()
+            cityEntity.forecastIdList = forecastEntityList.map { it.id }
 
             cityDao.inserOrUpdate(cityEntity)
 
@@ -95,7 +95,7 @@ class WeatherRepository @Inject constructor(
 
             // browse forecast list
             searchResponse.forecastList?.forEachIndexed { index, response ->
-                val forecastEntity = forecastEntityList?.get(index) ?: return@forEachIndexed
+                val forecastEntity = forecastEntityList[index]
 
                 // insert or update forecast
                 forecastDao.inserOrUpdate(forecastEntity)
